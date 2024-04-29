@@ -6,8 +6,14 @@ const port = 8000;
 // Middleware to parse JSON
 app.use(express.json());
 
-// In-memory data storage
-const items: { id: number; name: string }[] = [];
+// Define the Item interface
+interface Item {
+  id: number;
+  name: string;
+}
+
+// In-memory data store
+const items: Item[] = [];
 
 // Create a new item (Create)
 app.post("/items", (req: Request, res: Response) => {
